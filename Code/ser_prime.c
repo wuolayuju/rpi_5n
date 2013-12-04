@@ -47,7 +47,7 @@ int n,                           /* loop variables */
     pc,                          /* prime counter */
     foundone;                    /* most recent prime found */
   struct timeval t_begin, t_end, t_diff, t_total;
-printf("Starting. Numbers to be scanned= %d\n",LIMIT);
+//printf("Starting. Numbers to be scanned= %d\n",LIMIT);
 gettimeofday(&t_begin, NULL);
 pc=4;     /* Assume the primes less than 10 (2,3,5,7) are counted here */
 
@@ -64,6 +64,6 @@ for (n=11; n<=LIMIT; n=n+2) {
    }
 gettimeofday(&t_end, NULL);  
 timeval_subtract(&t_diff, &t_end, &t_begin);
-printf("Done. Largest prime is %d Total primes %d\n",foundone,pc);
-printf("Wallclock time elapsed: %ld.%06ld seconds\n",t_diff.tv_sec, t_diff.tv_usec);
+//printf("Done. Largest prime is %d Total primes %d\n",foundone,pc);
+printf("%d %ld.%06ld\n",LIMIT,t_diff.tv_sec, t_diff.tv_usec);
 } 

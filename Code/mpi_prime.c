@@ -69,7 +69,7 @@ foundone = 0;               /* Initialize */
 
 /******************** task with rank 0 does this part ********************/
 if (rank == FIRST) {
-   printf("Using %d tasks to scan %d numbers\n",ntasks,LIMIT);
+   //printf("Using %d tasks to scan %d numbers\n",ntasks,LIMIT);
    pc = 4;                  /* Assume first four primes are counted here */
    for (n=mystart; n<=LIMIT; n=n+stride) {
       if (isprime(n)) {
@@ -83,8 +83,8 @@ if (rank == FIRST) {
    MPI_Reduce(&pc,&pcsum,1,MPI_INT,MPI_SUM,FIRST,MPI_COMM_WORLD);
    MPI_Reduce(&foundone,&maxprime,1,MPI_INT,MPI_MAX,FIRST,MPI_COMM_WORLD);
    end_time=MPI_Wtime();
-   printf("Done. Largest prime is %d Total primes %d\n",maxprime,pcsum);
-   printf("Wallclock time elapsed: %.2lf seconds\n",end_time-start_time);
+   //printf("Done. Largest prime is %d Total primes %d\n",maxprime,pcsum);
+   printf("%d %.2lf\n",LIMIT,end_time-start_time);
    }
 
 
