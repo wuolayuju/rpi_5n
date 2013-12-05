@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define LIMIT     2500000     /* Increase this to find more primes */
+#define LIMIT 1000000
 #define PRINT     100000      /* Print a line after this many numbers */
 
 int timeval_subtract(struct timeval *result, struct timeval *t2, struct timeval *t1)
