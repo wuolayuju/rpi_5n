@@ -14,9 +14,9 @@
 
 #define MAXTASKS      8192
 /* Change the next four parameters to suit your case */
-#define STARTSIZE     100000
+#define STARTSIZE     0
 #define ENDSIZE       1000000
-#define INCREMENT     100000
+#define INCREMENT     10000
 #define ROUNDTRIPS    100
 
 int main (int argc, char *argv[])
@@ -116,16 +116,16 @@ if (rank < numtasks/2) {
       /* only two tasks. */
       for (j=1; j<numtasks/2; j++)
         MPI_Recv(&timings[j], 3, MPI_DOUBLE, j, tag, MPI_COMM_WORLD, &status);
-      printf("***Message size: %8d *** best  /  avg  / worst (MB/sec)\n",n);
+     //printf("***Message size: %8d *** best  /  avg  / worst (MB/sec)\n",n);
       for (j=0; j<numtasks/2; j++) { 
-        printf("   task pair: %4d - %4d:    %4.2f / %4.2f / %4.2f \n",
-              j, taskpairs[j], timings[j][0], timings[j][1], timings[j][2]);
+        //printf("   task pair: %4d - %4d:    %4.2f / %4.2f / %4.2f \n",
+              //j, taskpairs[j], timings[j][0], timings[j][1], timings[j][2]);
         bestall += timings[j][0];
         avgall += timings[j][1];
         worstall += timings[j][2];
         }
-      printf("   OVERALL AVERAGES:          %4.2f / %4.2f / %4.2f \n\n",
-            bestall/(numtasks/2), avgall/(numtasks/2), worstall/(numtasks/2));
+      printf("%8d:\t%4.2f \n",n,
+            avgall/(numtasks/2));
       }
     else {
       /* Other tasks send their timings to task 0 */
