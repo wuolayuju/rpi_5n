@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <sys/time.h>
 
-#define N 1000
+
 
 int timeval_subtract(struct timeval *result, struct timeval *t2, struct timeval *t1)
 {
@@ -22,6 +22,17 @@ int timeval_subtract(struct timeval *result, struct timeval *t2, struct timeval 
 
 int main(int argc, char *argv[])
 {
+  int N;
+
+  if (argc != 2)              /*escape sequence for command line*/
+  {
+      printf("correct command is srun -N <no. of processors> <N>\n");
+      return 0;
+  }
+
+  N= atoi(argv[1]);          /* number of rows in matrix A */
+
+
 int    i, j, k;			/* misc */
 double a[N][N], 		/* matrix A to be multiplied */
        b[N][N],      	/* matrix B to be multiplied */
