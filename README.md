@@ -1,16 +1,16 @@
-Pasitos para hacer commit:
+Pasos para hacer commit:
 
 1. sudo su
 
-2. git config --global user.name "bertuccio"
+2. git config --global user.name "tunick"
 
-3. git config --global user.email tontopollas@gmail.com
+3. git config --global user.email tucorreo@gmail.com
 
 4. git init
 
 5. git add README.md
 
-7. git commit -m "Regando la breva"
+7. git commit -m "esto es un commit"
 
 6. git remote rm origin
 
